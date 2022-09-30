@@ -1,45 +1,34 @@
 ## HTTP - Fetch Api Ödevi
 
-Javascript Fetch API, web tarayıcılarından sunuculara HTTP istekleri yapmanızı sağlayan modern bir arayüzdür. FETC API basit ve temizdir. Web tarayıcılarından sunuculara istekte bulunmak için daha esnek özellikler sunmaktadır.
+Javascript Fetch API, web tarayıcılarından sunuculara HTTP istekleri yapmamızı sağlayan modern bir arayüzdür. FETCH API basit ve temizdir. Web tarayıcılarından sunuculara istekte bulunmak için daha esnek özellikler sunmaktadır.
 
-fetch()yöntemi, web tarayıcılarına bir URL’ye istek gönderme talimatı veren global kapsamda mevcuttur.
+fetch() yöntemi, web tarayıcılarına bir URL’ye istek gönderme talimatı veren global kapsamda mevcuttur.
 
-fetch()getirmek istediğiniz kaynağın URL’si olan yalnızca bir parametre gerektirir:
+fetch() getirmek istediğiniz kaynağın URL’si olan yalnızca bir parametre gerektirir:
 
-let response = fetch(url);
+`let response = fetch(url);`
 
-fetch()yöntemi bir Promise döndürür. Böylece then()ve catch()kullanabilirsiniz.
+fetch()yöntemi bir Promise döndürür. Böylece then() ve catch() kullanabiliriz.
 
-fetch(url)
-.then(response => {
-// handle the response
-})
-.catch(error => {
-// handle the error
-});
+`fetch(url).then(response => { // handle the response }).catch(error => { // handle the error });`
+
 İstek tamamlandığında kaynak kullanılabilir hale gelir. Şu anda, Promise bir Response nesnesine dönüşecektir.
 
 Response nesnesi, alınan kaynağın API sarmalayıcısıdır. Response nesnesi, yanıtı incelemek için bir dizi faydalı özelliğe ve yönteme sahiptir.
 
-Yanıtın içeriği ham metin biçimindeyse, text() yöntemini kullanabilirsiniz. text() yöntemi, alınan kaynağın tüm içeriğiyle çözümlenen bir Promise döndürür:
+Yanıtın içeriği ham metin biçimindeyse, text() yöntemini kullanabiliriz. text() yöntemi, alınan kaynağın tüm içeriğiyle çözümlenen bir Promise döndürür:
 
-fetch(url)
-.then(response => {
-fetch('/readme.txt')
-.then(response => response.text())
-.then(data => console.log(data));
-Pratikte, genellikle async/await’i fetch() yöntemiyle şu şekilde kullanırsınız:
+`fetch(url) .then(response => { fetch('/readme.txt') .then(response => response.text()) .then(data => console.log(data));`
 
-async function fetchText() {
-let response = await fetch('/readme.txt');
-let data = await response.text();
-console.log(data);
-}
+Pratikte, genellikle async/await’i fetch() yöntemiyle şu şekilde kullanırız:
+
+`async function fetchText() { let response = await fetch('/readme.txt'); let data = await response.text(); console.log(data); }`
+
 text() yönteminin yanı sıra Response nesnesi, ilgili veri türünü işlemek için json(), blob(), formData() ve arrayBuffer() gibi başka yöntemlere sahiptir.
 
 Response nesnesi, status ve statusText özellikleri aracılığıyla durum kodunu ve durum metnini sağlar. Bir istek başarılı olduğunda durum kodu 200‘dür ve durum metni OK‘dur:
 
-async function fetchText() {
+`async function fetchText() {
 let response = await fetch('/readme.txt');
 let data = await response.text();
 console.log(data);
@@ -52,25 +41,22 @@ let response = await fetch('/readme.txt');
     if (response.status === 200) {
         let data = await response.text();
         // handle data
-    }
-
-}
+    }`
 
 fetchText();
+`
 Çıktı:
 
-200
-OK
+`200 OK`
+
 İstenen kaynak mevcut değilse, yanıt kodu 404‘tür:
 
-let response = await fetch('/non-existence.txt');
+`let response = await fetch('/non-existence.txt'); console.log(response.status); // 400 console.log(response.statusText); // Not Found`
 
-console.log(response.status); // 400
-console.log(response.statusText); // Not Found
 Çıktı:
 
-400
-Not Found
+`400 Not Found`
+
 İstenen URL bir sunucu hatası verirse yanıt kodu 500 olur.
 
 İstenen URL 300-309 yanıtıyla yenisine yönlendirilirse, Response nesnesinin durumu 200‘e ayarlanır. Ayrıca, yeniden yönlendirilen özellik true olarak ayarlanır.
