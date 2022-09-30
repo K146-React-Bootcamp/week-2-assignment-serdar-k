@@ -249,9 +249,5 @@ fetch(todosUrl)
     errorLogger(error);
   });
 
-// sıralama ödevi algoritması
-// table thead kısmındaki sıralama yapılacak kolonlara event listener eklenecek.
-// event listener hangi kolon için tıklanıyorsa
-// sort metodu kullanılarak sıralama yapılacak
-// sıralanmış todos'todus içerisine atılacak
-// renderTodos metodu çalıştırılacak.
+
+// ODEV PAGINATION KISIMLARINI ICERMEMEKTEDIR
