@@ -96,5 +96,3 @@ Status Kod 500 – Internal Server Error (Sunucu Hatası): HTTP 500 hatası inte
 
 Status Kod 503 – Service Unavailable (Hizmet Yok): 503 hatası internet sitesinin saklandığı sunucunun aşırı yüklendiği anlamına gelmektedir. Sunucu bu gibi durumlarda daha önce gelen isteklere verdiği cevapları vermektedir. Bu hata kodu sistem yöneticisinin meydana gelen hata üzerinde çalıştığı ve sitenin bir süre sonra tekrar erişilebilir olacağı anlamını taşımaktadır.
 
-- HTTP Request'in metodlari nelerdir?
-- Fetch API'nin metodlari ile örnekleri
